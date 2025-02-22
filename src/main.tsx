@@ -6,7 +6,7 @@ import {
 	createHashHistory,
 	createRouter,
 } from "@tanstack/react-router";
-import "./index.css";
+import "@/styles/index.css";
 
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
@@ -29,7 +29,7 @@ if (rootElement && !rootElement.innerHTML) {
 	const root = ReactDOM.createRoot(rootElement);
 	root.render(
 		<StrictMode>
-			<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+			<ThemeProvider>
 				<RouterProvider router={router} />
 			</ThemeProvider>
 		</StrictMode>,
