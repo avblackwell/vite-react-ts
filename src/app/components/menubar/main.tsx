@@ -1,16 +1,16 @@
-import React from "react";
 import {
-	MenubarMenu,
 	MenubarContent,
-	MenubarTrigger,
-	MenubarSeparator,
 	MenubarItem,
+	MenubarMenu,
+	MenubarSeparator,
 	MenubarShortcut,
+	MenubarTrigger,
 } from "@/components/ui/menubar";
+import React from "react";
 import { usePreferences } from "./atoms";
 
 export function Main() {
-	const { isOpen, togglePreferences } = usePreferences();
+	const { togglePreferences } = usePreferences();
 
 	React.useEffect(() => {
 		const down = (e: KeyboardEvent) => {
@@ -19,9 +19,10 @@ export function Main() {
 				togglePreferences();
 			}
 		};
+
 		document.addEventListener("keydown", down);
 		return () => document.removeEventListener("keydown", down);
-	}, [isOpen, togglePreferences]);
+	}, [togglePreferences]);
 
 	return (
 		<MenubarMenu>

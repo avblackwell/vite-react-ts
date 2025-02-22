@@ -1,11 +1,11 @@
-import { StrictMode } from "react";
-import ReactDOM from "react-dom/client";
 import { ThemeProvider } from "@/components/theme/provider";
 import {
 	RouterProvider,
 	createHashHistory,
 	createRouter,
 } from "@tanstack/react-router";
+import { StrictMode } from "react";
+import ReactDOM from "react-dom/client";
 import "@/styles/index.css";
 
 // Import the generated route tree
@@ -19,13 +19,6 @@ const router = createRouter({
 	history: hashHistory,
 });
 
-// Register the router instance for type safety
-declare module "@tanstack/react-router" {
-	interface Register {
-		router: typeof router;
-	}
-}
-
 // Render the app
 const rootElement = document.getElementById("root");
 if (rootElement && !rootElement.innerHTML) {
@@ -37,4 +30,11 @@ if (rootElement && !rootElement.innerHTML) {
 			</ThemeProvider>
 		</StrictMode>,
 	);
+}
+
+// Register the router instance for type safety
+declare module "@tanstack/react-router" {
+	interface Register {
+		router: typeof router;
+	}
 }

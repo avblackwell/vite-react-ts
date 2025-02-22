@@ -1,6 +1,6 @@
-import * as React from "react";
+import { modeAtom, themeAtom } from "@/components/theme/atoms";
 import { useAtomValue } from "jotai";
-import { themeAtom, modeAtom } from "@/components/theme/atoms";
+import * as React from "react";
 
 type ThemeProviderProps = {
 	children: React.ReactNode;

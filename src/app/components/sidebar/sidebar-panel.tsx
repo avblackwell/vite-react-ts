@@ -1,5 +1,5 @@
-import React from "react";
-import { cn } from "@/lib/utils";
+import { CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
 import { ResizablePanel } from "@/components/ui/resizable";
 import {
 	SidebarGroupLabel,
@@ -14,9 +14,9 @@ import {
 import { SidebarGroup } from "@/components/ui/sidebar";
 import { SidebarContent } from "@/components/ui/sidebar";
 import { SidebarMenu } from "@/components/ui/sidebar";
+import { cn } from "@/lib/utils";
 import { ChevronRight, Folder, Plus } from "lucide-react";
-import { CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
+import React from "react";
 
 type TreeItem = string | Array<string | TreeItem>;
 
@@ -68,9 +68,12 @@ export function SidebarPanel({
 							</SidebarGroupAction>
 							<SidebarGroupContent className="py-2">
 								<SidebarMenu>
-									{data.tree.map((item, index) => (
-										<Tree key={index} item={item} />
-									))}
+									{data.tree.map((item) => {
+										const key = Array.isArray(item)
+											? String(item[0])
+											: String(item);
+										return <Tree key={key} item={item} />;
+									})}
 								</SidebarMenu>
 							</SidebarGroupContent>
 						</>
@@ -108,9 +111,12 @@ function Tree({ item }: { item: TreeItem }) {
 				</CollapsibleTrigger>
 				<CollapsibleContent>
 					<SidebarMenuSub>
-						{items.map((subItem, index) => (
-							<Tree key={index} item={subItem} />
-						))}
+						{items.map((subItem) => {
+							const key = Array.isArray(subItem)
+								? String(subItem[0])
+								: String(subItem);
+							return <Tree key={key} item={subItem} />;
+						})}
 					</SidebarMenuSub>
 				</CollapsibleContent>
 			</Collapsible>

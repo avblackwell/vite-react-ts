@@ -15,7 +15,9 @@
     "build:dev-all": "cross-env NODE_ENV=development vite build --mode development",
     "preview": "vite preview",
     "lint": "pnpm biome lint --write ./src/app",
-    "format": "pnpm biome format --write ./src/app"
+    "check": "pnpm biome check --reporter=summary ./src/app",
+    "format": "pnpm biome format --write ./src/app",
+    "sortImports": "pnpm biome check --organize-imports-enabled=true --write ./src/app"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.0",

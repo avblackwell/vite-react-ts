@@ -1,6 +1,6 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Menu } from "@/components/menubar/menu";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { Outlet, createRootRoute } from "@tanstack/react-router";
 
 import { SidebarLeft } from "@/components/sidebar/sidebar-left";
 import { SidebarRight } from "@/components/sidebar/sidebar-right";

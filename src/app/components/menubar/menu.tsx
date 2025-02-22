@@ -1,3 +1,5 @@
+import { Main } from "@/components/menubar/main";
+import { MenuTheme } from "@/components/menubar/theme";
 import {
 	Menubar,
 	MenubarCheckboxItem,
@@ -11,8 +13,6 @@ import {
 	MenubarSubTrigger,
 	MenubarTrigger,
 } from "@/components/ui/menubar";
-import { MenuTheme } from "@/components/menubar/theme";
-import { Main } from "@/components/menubar/main";
 import { Preferences } from "./dialog/preferences";
 
 export function Menu() {
@@ -119,14 +119,18 @@ export function Menu() {
 								<MenubarShortcut>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
+										width="16"
+										height="16"
+										viewBox="0 0 24 24"
 										fill="none"
 										stroke="currentColor"
+										strokeWidth="2"
 										strokeLinecap="round"
 										strokeLinejoin="round"
-										strokeWidth="2"
-										className="h-4 w-4"
-										viewBox="0 0 24 24"
+										role="img"
+										aria-label="Smart Dictation"
 									>
+										<title>Smart Dictation</title>
 										<path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12" />
 										<circle cx="17" cy="7" r="5" />
 									</svg>
@@ -137,14 +141,18 @@ export function Menu() {
 								<MenubarShortcut>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
+										width="16"
+										height="16"
+										viewBox="0 0 24 24"
 										fill="none"
 										stroke="currentColor"
+										strokeWidth="2"
 										strokeLinecap="round"
 										strokeLinejoin="round"
-										strokeWidth="2"
-										className="h-4 w-4"
-										viewBox="0 0 24 24"
+										role="img"
+										aria-label="Emoji & Symbols"
 									>
+										<title>Emoji & Symbols</title>
 										<circle cx="12" cy="12" r="10" />
 										<path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
 									</svg>

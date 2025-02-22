@@ -1,10 +1,10 @@
-import React from "react";
+import type React from "react";
 
 import { Sidebar } from "@/components/ui/sidebar";
 
+import { SidebarPanel } from "@/components/sidebar/sidebar-panel";
 import { ResizablePanelGroup } from "@/components/ui/resizable";
 import { ResizableHandle } from "@/components/ui/resizable";
-import { SidebarPanel } from "@/components/sidebar/sidebar-panel";
 
 const data = {
 	changes: [],

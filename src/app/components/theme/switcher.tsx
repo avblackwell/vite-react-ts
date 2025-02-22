@@ -6,11 +6,11 @@ export function ThemeSwitcher() {
 	const [config] = useConfig();
 
 	React.useEffect(() => {
-		document.body.classList.forEach((className) => {
+		for (const className of document.body.classList) {
 			if (className.match(/^theme.*/)) {
 				document.body.classList.remove(className);
 			}
-		});
+		}
 
 		const theme = config.theme;
 		if (theme) {

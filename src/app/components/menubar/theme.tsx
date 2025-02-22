@@ -1,12 +1,12 @@
+import { type Mode, type Theme, useTheme } from "@/components/theme/atoms";
 import {
+	MenubarContent,
 	MenubarMenu,
 	MenubarRadioGroup,
 	MenubarRadioItem,
-	MenubarContent,
-	MenubarTrigger,
 	MenubarSeparator,
+	MenubarTrigger,
 } from "@/components/ui/menubar";
-import { Mode, Theme, useTheme } from "@/components/theme/atoms";
 
 const themes = [
 	{ value: "zinc", label: "Zinc" },
