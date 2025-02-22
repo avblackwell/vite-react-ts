@@ -45,7 +45,7 @@ export function SidebarRight({
 			{...props}
 		>
 			<ResizablePanelGroup direction="vertical">
-				<SidebarPanel data={data} label="Theme" defaultSize={4} />
+				<SidebarPanel data={data} label="Theme" />
 				<ResizableHandle withHandle />
 				<SidebarPanel data={data} label="Pages" defaultSize={4} />
 				<ResizableHandle withHandle />

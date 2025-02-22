@@ -11,36 +11,16 @@ import {
 	MenubarSubTrigger,
 	MenubarTrigger,
 } from "@/components/ui/menubar";
-import { MenuTheme } from "./menu-theme";
+import { MenuTheme } from "@/components/menubar/theme";
+import { Main } from "@/components/menubar/main";
+import { Preferences } from "./dialog/preferences";
 
 export function Menu() {
 	return (
 		<header className="flex sticky top-0 z-50 w-full items-center border-b bg-background">
 			<div className="flex h-(--header-height) w-full items-center">
 				<Menubar className="rounded-none border-b border-none px-2 ">
-					<MenubarMenu>
-						<MenubarTrigger className="font-bold">
-							Operator Display
-						</MenubarTrigger>
-						<MenubarContent>
-							<MenubarItem>About Music</MenubarItem>
-							<MenubarSeparator />
-							<MenubarItem>
-								Preferences... <MenubarShortcut>⌘,</MenubarShortcut>
-							</MenubarItem>
-							<MenubarSeparator />
-							<MenubarItem>
-								Hide Music... <MenubarShortcut>⌘H</MenubarShortcut>
-							</MenubarItem>
-							<MenubarItem>
-								Hide Others... <MenubarShortcut>⇧⌘H</MenubarShortcut>
-							</MenubarItem>
-							<MenubarShortcut />
-							<MenubarItem>
-								Quit Music <MenubarShortcut>⌘Q</MenubarShortcut>
-							</MenubarItem>
-						</MenubarContent>
-					</MenubarMenu>
+					<Main />
 					<MenubarMenu>
 						<MenubarTrigger className="relative">File</MenubarTrigger>
 						<MenubarContent>
@@ -185,6 +165,7 @@ export function Menu() {
 					<MenuTheme />
 				</Menubar>
 			</div>
+			<Preferences />
 		</header>
 	);
 }

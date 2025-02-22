@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import { ThemeProvider } from "@/components/provider/theme-provider";
+import { ThemeProvider } from "@/components/theme/provider";
 import {
 	RouterProvider,
 	createHashHistory,
@@ -14,7 +14,10 @@ import { routeTree } from "./routeTree.gen";
 const hashHistory = createHashHistory();
 
 // Create a new router instance
-const router = createRouter({ routeTree, history: hashHistory });
+const router = createRouter({
+	routeTree,
+	history: hashHistory,
+});
 
 // Register the router instance for type safety
 declare module "@tanstack/react-router" {

@@ -4,7 +4,6 @@ import { Menu } from "@/components/menubar/menu";
 
 import { SidebarLeft } from "@/components/sidebar/sidebar-left";
 import { SidebarRight } from "@/components/sidebar/sidebar-right";
-import { Button } from "@/components/ui/button";
 
 export const Route = createRootRoute({
 	component: () => (
@@ -17,7 +16,6 @@ export const Route = createRootRoute({
 						<div className="flex flex-1 flex-col gap-4 p-4">
 							<div className="mx-auto h-[100vh] w-full max-w-3xl bg-muted/50 p-4">
 								<Outlet />
-								<Button>Click me</Button>
 							</div>
 						</div>
 					</SidebarInset>

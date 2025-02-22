@@ -1,19 +1,22 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { ResizablePanel } from "../ui/resizable";
+import { ResizablePanel } from "@/components/ui/resizable";
 import {
 	SidebarGroupLabel,
 	SidebarMenuButton,
 	SidebarMenuItem,
 	SidebarMenuSub,
-} from "../ui/sidebar";
-import { SidebarGroupAction, SidebarGroupContent } from "../ui/sidebar";
-import { SidebarGroup } from "../ui/sidebar";
-import { SidebarContent } from "../ui/sidebar";
-import { SidebarMenu } from "../ui/sidebar";
+} from "@/components/ui/sidebar";
+import {
+	SidebarGroupAction,
+	SidebarGroupContent,
+} from "@/components/ui/sidebar";
+import { SidebarGroup } from "@/components/ui/sidebar";
+import { SidebarContent } from "@/components/ui/sidebar";
+import { SidebarMenu } from "@/components/ui/sidebar";
 import { ChevronRight, Folder, Plus } from "lucide-react";
-import { CollapsibleTrigger } from "../ui/collapsible";
-import { Collapsible, CollapsibleContent } from "../ui/collapsible";
+import { CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Collapsible, CollapsibleContent } from "@/components/ui/collapsible";
 
 type TreeItem = string | Array<string | TreeItem>;
 

@@ -6,7 +6,7 @@ import {
 	MenubarTrigger,
 	MenubarSeparator,
 } from "@/components/ui/menubar";
-import { Mode, Theme, useTheme } from "@/components/provider/theme-atoms";
+import { Mode, Theme, useTheme } from "@/components/theme/atoms";
 
 const themes = [
 	{ value: "zinc", label: "Zinc" },
