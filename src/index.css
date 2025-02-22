@@ -29,7 +29,7 @@
   --chart-3: hsl(197 37% 24%);
   --chart-4: hsl(43 74% 66%);
   --chart-5: hsl(27 87% 67%);
-  --radius: 0.6rem;
+  --radius: 0rem;
   --sidebar: hsl(0 0% 98%);
   --sidebar-foreground: hsl(240 5.3% 26.1%);
   --sidebar-primary: hsl(240 5.9% 10%);
@@ -154,5 +154,13 @@
   }
   ::-webkit-scrollbar-track {
     background: transparent;
+  }
+  .dot {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background-image: radial-gradient(var(--text-foreground) 1px, var(--background) 1px);
+    background-size: 16px 16px;
   }
 }

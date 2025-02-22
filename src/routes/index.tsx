@@ -1,4 +1,3 @@
-import { ResizableHandleDemo } from "@/components/resize-handle";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -6,5 +5,5 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-	return <ResizableHandleDemo />;
+	return <div className="p-2">Hello from Index!</div>;
 }
