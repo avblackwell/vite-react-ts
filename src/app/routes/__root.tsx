@@ -14,12 +14,12 @@ export const Route = createRootRoute({
 					<SidebarLeft />
 					<SidebarInset>
 						<div className="flex flex-1 flex-col gap-4 p-4">
-							<div className="mx-auto h-[100vh] w-full max-w-3xl bg-muted/50 p-4">
+							<div className="mx-auto h-[100vh] w-full max-w-7xl bg-muted/50">
 								<Outlet />
 							</div>
 						</div>
 					</SidebarInset>
-					<SidebarRight side="right" />
+					{/* <SidebarRight side="right" /> */}
 				</div>
 			</SidebarProvider>
 		</div>
