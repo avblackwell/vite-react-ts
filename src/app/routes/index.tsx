@@ -4,27 +4,6 @@ import {
 } from "@/registry/components/component-render";
 import { createFileRoute } from "@tanstack/react-router";
 
-// // Container Component
-// interface ContainerComponentProps extends BaseComponentProps {
-// 	className: string;
-// }
-
-// interface ContainerComponentType {
-// 	type: "Container";
-// 	props: ContainerComponentProps;
-// 	children?: ComponentType[];
-// }
-
-// function ContainerComponent({ props, children }: ContainerComponentType) {
-// 	return (
-// 		<div className={props.className}>
-// 			{children?.map((child, index) => (
-// 				<ComponentComponent key={`${child.type}-${index}`} component={child} />
-// 			))}
-// 		</div>
-// 	);
-// }
-
 // Layout data type definitions
 export interface LayoutTheme {
 	colors: {
@@ -48,7 +27,7 @@ const layoutData: LayoutData = {
 		{
 			type: "Grid",
 			props: {
-				className: "grid auto-rows-min gap-4 md:grid-cols-3 p-10",
+				className: "p-4",
 				children: [
 					{
 						type: "Card",
@@ -59,58 +38,43 @@ const layoutData: LayoutData = {
 						},
 					},
 					{
-						type: "Heading",
+						type: "Card",
 						props: {
-							content:
-								"Hello, world Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
-							level: 1,
+							title: "Card 1",
+							description: "Card 1 description",
+							footer: "Card 1 footer",
 						},
 					},
 					{
-						type: "Paragraph",
+						type: "Card",
 						props: {
-							content:
-								"Hello, world Lorem, ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+							title: "Card 1",
+							description: "Card 1 description",
+							footer: "Card 1 footer",
 						},
 					},
 					{
-						type: "List",
+						type: "Card",
 						props: {
-							content: [
-								{ id: "1", content: "Item 1" },
-								{ id: "2", content: "Item 2" },
-								{ id: "3", content: "Item 3" },
-								{ id: "4", content: "Item 4" },
-								{ id: "5", content: "Item 5" },
-								{ id: "6", content: "Item 6" },
-								{ id: "7", content: "Item 7" },
-								{ id: "8", content: "Item 8" },
-								{ id: "9", content: "Item 9" },
-								{ id: "10", content: "Item 10" },
-							],
+							title: "Card 1",
+							description: "Card 1 description",
+							footer: "Card 1 footer",
 						},
 					},
 					{
-						type: "BlockQuote",
+						type: "Card",
 						props: {
-							content:
-								"Hello, world Lorem, ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+							title: "Card 1",
+							description: "Card 1 description",
+							footer: "Card 1 footer",
 						},
 					},
 					{
-						type: "Grid",
+						type: "Card",
 						props: {
-							className: "grid-cols-2 gap-4",
-							children: [
-								{
-									type: "Button",
-									props: { label: "Button 1" },
-								},
-								{
-									type: "Button",
-									props: { label: "Button 2" },
-								},
-							],
+							title: "Card 1",
+							description: "Card 1 description",
+							footer: "Card 1 footer",
 						},
 					},
 				],

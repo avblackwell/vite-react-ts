@@ -1,6 +1,3 @@
-import { cn } from "@/lib/utils";
-import type * as React from "react";
-import { ComponentRender, type ComponentType } from "./component-render";
 import {
 	Card as ShadcnCard,
 	CardContent as ShadcnCardContent,
@@ -9,6 +6,9 @@ import {
 	CardHeader as ShadcnCardHeader,
 	CardTitle as ShadcnCardTitle,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import type * as React from "react";
+import { ComponentRender, type ComponentType } from "./component-render";
 // Card Component
 // TODO: extract the card component to separate files and add props to the card component
 
