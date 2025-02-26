@@ -15,6 +15,7 @@ import {
 import { NavFavorites } from "@/components/nav-favorites";
 
 import { Sidebar, SidebarContent, SidebarRail } from "@/components/ui/sidebar";
+import { NavWorkspaces } from "./nav-workspaces";
 
 // This is sample data.
 const data = {

@@ -2,7 +2,7 @@ import { Menu } from "@/components/menubar/menu";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 
-import { SidebarLeft } from "@/components/sidebar/sidebar-left";
+import { SidebarLeft } from "@/components/sidebar-left";
 import { SidebarRight } from "@/components/sidebar/sidebar-right";
 
 export const Route = createRootRoute({
