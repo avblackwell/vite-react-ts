@@ -11,14 +11,35 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as ViewImport } from './routes/view'
 import { Route as ListImport } from './routes/list'
+import { Route as JsonImport } from './routes/json'
+import { Route as EditImport } from './routes/edit'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
+const ViewRoute = ViewImport.update({
+  id: '/view',
+  path: '/view',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const ListRoute = ListImport.update({
   id: '/list',
   path: '/list',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const JsonRoute = JsonImport.update({
+  id: '/json',
+  path: '/json',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const EditRoute = EditImport.update({
+  id: '/edit',
+  path: '/edit',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -39,11 +60,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/edit': {
+      id: '/edit'
+      path: '/edit'
+      fullPath: '/edit'
+      preLoaderRoute: typeof EditImport
+      parentRoute: typeof rootRoute
+    }
+    '/json': {
+      id: '/json'
+      path: '/json'
+      fullPath: '/json'
+      preLoaderRoute: typeof JsonImport
+      parentRoute: typeof rootRoute
+    }
     '/list': {
       id: '/list'
       path: '/list'
       fullPath: '/list'
       preLoaderRoute: typeof ListImport
+      parentRoute: typeof rootRoute
+    }
+    '/view': {
+      id: '/view'
+      path: '/view'
+      fullPath: '/view'
+      preLoaderRoute: typeof ViewImport
       parentRoute: typeof rootRoute
     }
   }
@@ -53,37 +95,52 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/edit': typeof EditRoute
+  '/json': typeof JsonRoute
   '/list': typeof ListRoute
+  '/view': typeof ViewRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/edit': typeof EditRoute
+  '/json': typeof JsonRoute
   '/list': typeof ListRoute
+  '/view': typeof ViewRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/edit': typeof EditRoute
+  '/json': typeof JsonRoute
   '/list': typeof ListRoute
+  '/view': typeof ViewRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/list'
+  fullPaths: '/' | '/edit' | '/json' | '/list' | '/view'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/list'
-  id: '__root__' | '/' | '/list'
+  to: '/' | '/edit' | '/json' | '/list' | '/view'
+  id: '__root__' | '/' | '/edit' | '/json' | '/list' | '/view'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EditRoute: typeof EditRoute
+  JsonRoute: typeof JsonRoute
   ListRoute: typeof ListRoute
+  ViewRoute: typeof ViewRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EditRoute: EditRoute,
+  JsonRoute: JsonRoute,
   ListRoute: ListRoute,
+  ViewRoute: ViewRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,14 +154,26 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/list"
+        "/edit",
+        "/json",
+        "/list",
+        "/view"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
+    "/edit": {
+      "filePath": "edit.tsx"
+    },
+    "/json": {
+      "filePath": "json.tsx"
+    },
     "/list": {
       "filePath": "list.tsx"
+    },
+    "/view": {
+      "filePath": "view.tsx"
     }
   }
 }

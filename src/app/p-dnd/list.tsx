@@ -69,7 +69,7 @@ export function List() {
 	}, [tasks]);
 
 	return (
-		<div className="pt-6 my-0 mx-auto w-[420px]">
+		<div className="w-full">
 			<div className="flex flex-col gap-2 border rounded p-2">
 				{tasks.map((task) => (
 					<Task key={task.id} task={task} />

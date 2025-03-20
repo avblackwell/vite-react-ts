@@ -1,10 +1,8 @@
-"use client";
-
 import {
-	ArrowUpRight,
-	Link,
+	Folder,
+	type LucideIcon,
 	MoreHorizontal,
-	StarOff,
+	Share,
 	Trash2,
 } from "lucide-react";
 
@@ -25,26 +23,26 @@ import {
 	useSidebar,
 } from "@/components/ui/sidebar";
 
-export function NavWorkspaces({
-	workspaces,
+export function NavProjects({
+	projects,
 }: {
-	workspaces: {
+	projects: {
 		name: string;
 		url: string;
-		emoji: string;
+		icon: LucideIcon;
 	}[];
 }) {
 	const { isMobile } = useSidebar();
 
 	return (
 		<SidebarGroup className="group-data-[collapsible=icon]:hidden">
-			<SidebarGroupLabel>Favorites</SidebarGroupLabel>
+			<SidebarGroupLabel>Projects</SidebarGroupLabel>
 			<SidebarMenu>
-				{workspaces.map((item) => (
+				{projects.map((item) => (
 					<SidebarMenuItem key={item.name}>
 						<SidebarMenuButton asChild>
-							<a href={item.url} title={item.name}>
-								<span>{item.emoji}</span>
+							<a href={item.url}>
+								<item.icon />
 								<span>{item.name}</span>
 							</a>
 						</SidebarMenuButton>
@@ -56,34 +54,29 @@ export function NavWorkspaces({
 								</SidebarMenuAction>
 							</DropdownMenuTrigger>
 							<DropdownMenuContent
-								className="w-56 rounded-lg"
+								className="w-48"
 								side={isMobile ? "bottom" : "right"}
 								align={isMobile ? "end" : "start"}
 							>
 								<DropdownMenuItem>
-									<StarOff className="text-muted-foreground" />
-									<span>Remove from Favorites</span>
-								</DropdownMenuItem>
-								<DropdownMenuSeparator />
-								<DropdownMenuItem>
-									<Link className="text-muted-foreground" />
-									<span>Copy Link</span>
+									<Folder className="text-muted-foreground" />
+									<span>View Project</span>
 								</DropdownMenuItem>
 								<DropdownMenuItem>
-									<ArrowUpRight className="text-muted-foreground" />
-									<span>Open in New Tab</span>
+									<Share className="text-muted-foreground" />
+									<span>Share Project</span>
 								</DropdownMenuItem>
 								<DropdownMenuSeparator />
 								<DropdownMenuItem>
 									<Trash2 className="text-muted-foreground" />
-									<span>Delete</span>
+									<span>Delete Project</span>
 								</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>
 					</SidebarMenuItem>
 				))}
 				<SidebarMenuItem>
-					<SidebarMenuButton className="text-sidebar-foreground/70">
+					<SidebarMenuButton>
 						<MoreHorizontal />
 						<span>More</span>
 					</SidebarMenuButton>

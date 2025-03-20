@@ -1,37 +1,45 @@
-import { createContext, memo, useContext, useEffect, useRef, useState } from 'react';
-import invariant from 'tiny-invariant';
+import {
+	createContext,
+	memo,
+	useContext,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
+import invariant from "tiny-invariant";
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from "@atlaskit/pragmatic-drag-and-drop/combine";
 import {
 	draggable,
 	dropTargetForElements,
 	monitorForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+} from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
 
-import battery from '../assets/battery.png';
-import drill from '../assets/drill.png';
-import koala from '../assets/koala.png';
-import ui from '../assets/ui.png';
-import wallet from '../assets/wallet.png';
-import yeti from '../assets/yeti.png';
+import battery from "../assets/battery.png";
+import drill from "../assets/drill.png";
+import koala from "../assets/koala.png";
+import ui from "../assets/ui.png";
+import wallet from "../assets/wallet.png";
+import yeti from "../assets/yeti.png";
 
 function getInstanceId() {
-	return Symbol('instance-id');
+	return Symbol("instance-id");
 }
 
 const InstanceIdContext = createContext<symbol | null>(null);
 
-type State = 'idle' | 'dragging' | 'over';
+type State = "idle" | "dragging" | "over";
 
 const getItemStateClasses = (state: State): string => {
-	const baseClasses = 'w-full object-cover box-border bg-white p-1 rounded transition-all duration-200 ease-in-out';
-	
+	const baseClasses =
+		"w-full object-cover box-border bg-white p-1 rounded transition-all duration-200 ease-in-out";
+
 	switch (state) {
-		case 'idle':
+		case "idle":
 			return `${baseClasses} hover:bg-gray-50 hover:shadow-md`;
-		case 'dragging':
+		case "dragging":
 			return `${baseClasses} grayscale-80`;
-		case 'over':
+		case "over":
 			return `${baseClasses} scale-110 rotate-8 brightness-110 shadow-lg`;
 		default:
 			return baseClasses;
@@ -40,7 +48,7 @@ const getItemStateClasses = (state: State): string => {
 
 const Item = memo(function Item({ src }: { src: string }) {
 	const ref = useRef<HTMLImageElement | null>(null);
-	const [state, setState] = useState<State>('idle');
+	const [state, setState] = useState<State>("idle");
 	const instanceId = useContext(InstanceIdContext);
 
 	useEffect(() => {
@@ -50,9 +58,9 @@ const Item = memo(function Item({ src }: { src: string }) {
 		return combine(
 			draggable({
 				element: el,
-				getInitialData: () => ({ type: 'grid-item', src, instanceId }),
-				onDragStart: () => setState('dragging'),
-				onDrop: () => setState('idle'),
+				getInitialData: () => ({ type: "grid-item", src, instanceId }),
+				onDragStart: () => setState("dragging"),
+				onDrop: () => setState("idle"),
 			}),
 			dropTargetForElements({
 				element: el,
@@ -60,20 +68,34 @@ const Item = memo(function Item({ src }: { src: string }) {
 				getIsSticky: () => true,
 				canDrop: ({ source }) =>
 					source.data.instanceId === instanceId &&
-					source.data.type === 'grid-item' &&
+					source.data.type === "grid-item" &&
 					source.data.src !== src,
-				onDragEnter: () => setState('over'),
-				onDragLeave: () => setState('idle'),
-				onDrop: () => setState('idle'),
+				onDragEnter: () => setState("over"),
+				onDragLeave: () => setState("idle"),
+				onDrop: () => setState("idle"),
 			}),
 		);
 	}, [instanceId, src]);
 
-	return <img className={getItemStateClasses(state)} ref={ref} src={src} alt="Draggable item" />;
+	return (
+		<img
+			className={getItemStateClasses(state)}
+			ref={ref}
+			src={src}
+			alt="Draggable item"
+		/>
+	);
 });
 
 export default function Grid() {
-	const [items, setItems] = useState<string[]>(() => [battery, drill, koala, ui, wallet, yeti]);
+	const [items, setItems] = useState<string[]>(() => [
+		battery,
+		drill,
+		koala,
+		ui,
+		wallet,
+		yeti,
+	]);
 	const [instanceId] = useState(getInstanceId);
 
 	useEffect(() => {
@@ -89,11 +111,11 @@ export default function Grid() {
 				const destinationSrc = destination.data.src;
 				const startSrc = source.data.src;
 
-				if (typeof destinationSrc !== 'string') {
+				if (typeof destinationSrc !== "string") {
 					return;
 				}
 
-				if (typeof startSrc !== 'string') {
+				if (typeof startSrc !== "string") {
 					return;
 				}
 

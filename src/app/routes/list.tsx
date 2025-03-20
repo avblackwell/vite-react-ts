@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { List } from "../p-dnd/list";
 import Grid from "../p-dnd/grid";
+import { List } from "../p-dnd/list";
 import Test from "../p-dnd/test";
 export const Route = createFileRoute("/list")({
 	component: RouteComponent,
@@ -8,7 +8,7 @@ export const Route = createFileRoute("/list")({
 
 function RouteComponent() {
 	return (
-		<div className="flex flex-col gap-4 p-10">
+		<div className="flex flex-col">
 			<List />
 			<Grid />
 			<Test />

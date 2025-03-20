@@ -9,7 +9,7 @@ import {
 import React from "react";
 import { usePreferences } from "./atoms";
 
-export function Main() {
+export function MenuOperatorDisplay() {
 	const { togglePreferences } = usePreferences();
 
 	React.useEffect(() => {
